@@ -130,13 +130,11 @@ repository:
     patterns:
       - match: '^\s*else\s*\:'
         name: conditional.else
-      - begin: '^\s*(-)\s?[^:]+'
-        beginCaptures:
-          '1': {name: keyword.operator}
-        end: (:)
-        endCaptures:
-          '1': {name: keyword.operator}
+      - match: '^\s*(-)\s?[^:]+(:)'
         name: conditional.clause
+        captures:
+          '1': {name: keyword.operator}
+          '2': {name: keyword.operator}
         patterns:
           - {include: '#mixedContent'}
 
