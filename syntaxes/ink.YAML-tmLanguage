@@ -130,11 +130,12 @@ repository:
     patterns:
       - match: '^\s*else\s*\:'
         name: conditional.else
-      - begin: '^\s*(-)\s?[^:]+(:)'
+      - begin: '^\s*(-)\s?[^:]+'
         beginCaptures:
           '1': {name: keyword.operator}
-          '2': {name: keyword.operator}
-        end: $\n?
+        end: (:)
+        endCaptures:
+          '1': {name: keyword.operator}
         name: conditional.clause
         patterns:
           - {include: '#mixedContent'}
@@ -178,9 +179,11 @@ repository:
     name: meta.logic
 
   logicLine:
-    match: \s*(~\s*.*)$
-    captures:
-      '0': {name: meta.logic}
+    begin: \s*~\s*
+    end: $\n?
+    name: meta.logic
+    patterns:
+    - include: '#comments'
 
   divert:
       match: (->|<-)\s*((?:(DONE)|(END)|(\w+))(?:\s*\.\s*(?:\w+))*\s*(?:\([^\)]+\))?)?

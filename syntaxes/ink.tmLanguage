@@ -402,7 +402,7 @@
           </dict>
           <dict>
             <key>begin</key>
-            <string>^\s*(-)\s?[^:]+(:)</string>
+            <string>^\s*(-)\s?[^:]+</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -410,14 +410,17 @@
                 <key>name</key>
                 <string>keyword.operator</string>
               </dict>
-              <key>2</key>
+            </dict>
+            <key>end</key>
+            <string>(:)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
               <dict>
                 <key>name</key>
                 <string>keyword.operator</string>
               </dict>
             </dict>
-            <key>end</key>
-            <string>$\n?</string>
             <key>name</key>
             <string>conditional.clause</string>
             <key>patterns</key>
@@ -542,16 +545,19 @@
       </dict>
       <key>logicLine</key>
       <dict>
-        <key>match</key>
-        <string>\s*(~\s*.*)$</string>
-        <key>captures</key>
-        <dict>
-          <key>0</key>
+        <key>begin</key>
+        <string>\s*~\s*</string>
+        <key>end</key>
+        <string>$\n?</string>
+        <key>name</key>
+        <string>meta.logic</string>
+        <key>patterns</key>
+        <array>
           <dict>
-            <key>name</key>
-            <string>meta.logic</string>
+            <key>include</key>
+            <string>#comments</string>
           </dict>
-        </dict>
+        </array>
       </dict>
       <key>divert</key>
       <dict>
