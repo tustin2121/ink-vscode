@@ -20,7 +20,7 @@ patterns:
   name: meta.knot.declaration
 
 # stitch declaration
-- match: ^\s*(=)\s*(\w+)\s*(\([^)\n]*\))?\s*$
+- match: ^\s*(=)\s*(\w+)\s*(\([^)\n]*\))?
   captures:
     '1': {name: markup.punctuation}
     '2': {name: entity.name.stitch}

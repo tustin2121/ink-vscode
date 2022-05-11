@@ -55,7 +55,7 @@
       </dict>
       <dict>
         <key>match</key>
-        <string>^\s*(=)\s*(\w+)\s*(\([^)\n]*\))?\s*$</string>
+        <string>^\s*(=)\s*(\w+)\s*(\([^)\n]*\))?</string>
         <key>captures</key>
         <dict>
           <key>1</key>
