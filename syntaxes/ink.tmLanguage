@@ -218,7 +218,7 @@
       <key>external</key>
       <dict>
         <key>begin</key>
-        <string>^\s*((EXTERNAL)\s*([\w_0-9]*\(\)))\s*</string>
+        <string>^\s*((EXTERNAL)\s*([\w_0-9]*\(\S*\)))\s*</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -243,7 +243,7 @@
       <key>globalVAR</key>
       <dict>
         <key>begin</key>
-        <string>^\s*((VAR|CONST)\s*(\w+))\s*</string>
+        <string>^\s*((VAR|CONST|LIST)\s*(\w+))\s*</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>

@@ -75,14 +75,14 @@ repository:
       '3': {name: string.other }
     end: $\n?
   external:
-    begin: ^\s*((EXTERNAL)\s*([\w_0-9]*\(\)))\s*
+    begin: ^\s*((EXTERNAL)\s*([\w_0-9]*\(\S*\)))\s*
     beginCaptures:
       '1': {name: meta.external}
       '2': {name: keyword.control.external}
       '3': {name: support.function }
     end: $\n?
   globalVAR:
-    begin: ^\s*((VAR|CONST)\s*(\w+))\s*
+    begin: ^\s*((VAR|CONST|LIST)\s*(\w+))\s*
     beginCaptures:
       '1': {name: meta.variable.declaration}
       '2': {name: storage}
